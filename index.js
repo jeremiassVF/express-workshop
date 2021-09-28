@@ -5,10 +5,12 @@ const auth = require('./middleware/auth');
 const notFound = require('./middleware/notFound');
 const index = require('./middleware/index');
 const app = express();
+const cors = require('./middleware/cors');
 //rutes
 const pokemon = require('./routes/pokemon');
 const user = require('./routes/user');
 
+app.use(cors);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
